@@ -65,6 +65,7 @@ let avg = calculateMarksAvg(students[2].marks);
 
 
 
+
 // Grade function
 const calculateGrade = (average) => {
 
@@ -145,8 +146,32 @@ const findTopper = (studentList) => {
   return topperStudent;
 
 
-
 }
 
-const topper = findTopper(students)
-console.log(topper)
+const topper = findTopper(students);
+
+
+
+
+// Find Failed Student Function
+const failedStudents = (studentList) => {
+
+  studentList.forEach(function(student){
+
+    let currentStudentAvg = calculateMarksAvg(student.marks);
+    
+    
+    if(currentStudentAvg < 50){
+      studentReport(student);
+      
+    }
+
+
+
+  });
+
+
+};
+
+failedStudents(students)
+
