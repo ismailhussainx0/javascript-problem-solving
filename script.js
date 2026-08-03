@@ -120,7 +120,6 @@ const studentReport = (student) => {
 
 
 
-
 // Find Topper function
 const findTopper = (studentList) => {
 
@@ -133,8 +132,8 @@ const findTopper = (studentList) => {
 
     currentAverage = calculateMarksAvg(studentList[i].marks);
 
-    if(currentAverage > highestAverage){
-      
+    if (currentAverage > highestAverage) {
+
       highestAverage = currentAverage;
       topperStudent = studentList[i];
 
@@ -153,25 +152,50 @@ const topper = findTopper(students);
 
 
 
+
 // Find Failed Student Function
 const failedStudents = (studentList) => {
 
-  studentList.forEach(function(student){
+  studentList.forEach(function (student) {
 
     let currentStudentAvg = calculateMarksAvg(student.marks);
-    
-    
-    if(currentStudentAvg < 50){
+
+    if (currentStudentAvg < 50) {
       studentReport(student);
-      
+      console.log("")
     }
-
-
 
   });
 
+};
+
+// failedStudents(students);
+
+
+
+// Find student by id function
+const findStudentById = (studentList, studentId) => {
+
+  let studentObject = null;
+
+  studentList.forEach(function (student) {
+
+    if (studentId === student.id) {
+      studentObject = student;
+    }
+
+  });
+
+  return studentObject;
 
 };
 
-failedStudents(students)
+
+let foundStudent = findStudentById(students, 2);
+if(foundStudent != null){
+  studentReport(foundStudent);
+}else{
+  console.log("Student Not Found!");
+}
+
 
