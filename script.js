@@ -21,7 +21,7 @@ const students = [
     name: "Anus",
     age: 17,
     marks: [20, 60, 80, 57, 29],
-    city: "Karachi"
+    city: "Lahore"
   },
 
   {
@@ -29,7 +29,7 @@ const students = [
     name: "Umer",
     age: 18,
     marks: [90, 60, 54, 67, 32],
-    city: "Karachi"
+    city: "Islamabad"
   },
 
   {
@@ -199,3 +199,23 @@ if(foundStudent != null){
 }
 
 
+
+
+// Find student by city function
+const findStudentByCity = (studentList, city) => {
+
+  let matchingStudents = [];
+
+  for(let i = 0; i < studentList.length; i++){
+
+    if(studentList[i].city === city){
+      matchingStudents.push(studentList[i]);
+    }
+  }
+
+  return(matchingStudents);
+
+};
+
+let findCity = findStudentByCity(students, "istambol");
+console.log(findCity);
